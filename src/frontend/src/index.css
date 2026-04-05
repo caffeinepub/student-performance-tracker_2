@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* Blue theme palette - OKLCH */
+    --background: 0.966 0.009 240; /* #F3F6FB cool light blue-gray */
+    --foreground: 0.14 0.02 250; /* near-black */
+    --card: 1 0 0; /* white */
+    --card-foreground: 0.14 0.02 250;
+    --popover: 1 0 0;
+    --popover-foreground: 0.14 0.02 250;
+
+    /* Primary: brand blue #1E5AA8 */
+    --primary: 0.42 0.13 255;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary: lighter blue */
+    --secondary: 0.93 0.025 240;
+    --secondary-foreground: 0.42 0.13 255;
+
+    --muted: 0.93 0.015 240;
+    --muted-foreground: 0.52 0.025 245;
+
+    --accent: 0.91 0.035 240;
+    --accent-foreground: 0.42 0.13 255;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.9 0.02 240; /* #E3E8F0 */
+    --input: 0.9 0.02 240;
+    --ring: 0.42 0.13 255;
+
+    /* Charts */
+    --chart-1: 0.42 0.13 255; /* brand blue */
+    --chart-2: 0.68 0.19 162; /* teal */
+    --chart-3: 0.72 0.18 52; /* amber */
+    --chart-4: 0.62 0.22 305; /* purple */
+    --chart-5: 0.6 0.22 25; /* orange-red */
+
+    /* Sidebar */
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.14 0.02 250;
+    --sidebar-primary: 0.42 0.13 255;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.91 0.035 240;
+    --sidebar-accent-foreground: 0.42 0.13 255;
+    --sidebar-border: 0.9 0.02 240;
+    --sidebar-ring: 0.42 0.13 255;
+
+    /* Brand header gradient */
+    --header-from: #1b4f95;
+    --header-to: #1e5aa8;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .header-gradient {
+    background: linear-gradient(135deg, #1b4f95 0%, #1e5aa8 100%);
+  }
+
+  .brand-text {
+    background: linear-gradient(135deg, #ffffff 0%, #c8d8f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgba(30, 90, 168, 0.08), 0 1px 2px -1px
+      rgba(30, 90, 168, 0.04);
+  }
+
+  .card-hover {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 4px 12px 0 rgba(30, 90, 168, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .sidebar-active {
+    background: oklch(var(--accent));
+    color: oklch(var(--primary));
+    font-weight: 600;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+}
